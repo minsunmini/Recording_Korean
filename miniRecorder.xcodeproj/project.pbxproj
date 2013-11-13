@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24D86A3818330A03000381D1 /* ofxTrueTypeFontUC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24D86A3418330A03000381D1 /* ofxTrueTypeFontUC.cpp */; };
 		928F4520182BF3CE00292FE0 /* recorder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 928F451E182BF3CE00292FE0 /* recorder.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		D50B3D9655F08D2B232C1C4D /* ofxVideoRecorder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 883A95C78655CFEEA37EF9A1 /* ofxVideoRecorder.cpp */; };
@@ -62,6 +63,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		24D86A2F18330A03000381D1 /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
+		24D86A3018330A03000381D1 /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
+		24D86A3118330A03000381D1 /* ofxaddons_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ofxaddons_thumbnail.png; sourceTree = "<group>"; };
+		24D86A3218330A03000381D1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		24D86A3418330A03000381D1 /* ofxTrueTypeFontUC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTrueTypeFontUC.cpp; sourceTree = "<group>"; };
+		24D86A3518330A03000381D1 /* ofxTrueTypeFontUC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTrueTypeFontUC.h; sourceTree = "<group>"; };
 		883A95C78655CFEEA37EF9A1 /* ofxVideoRecorder.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxVideoRecorder.cpp; path = ../../../addons/ofxVideoRecorder/src/ofxVideoRecorder.cpp; sourceTree = SOURCE_ROOT; };
 		928F451E182BF3CE00292FE0 /* recorder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = recorder.cpp; sourceTree = "<group>"; };
 		928F451F182BF3CE00292FE0 /* recorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = recorder.h; sourceTree = "<group>"; };
@@ -120,6 +127,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24D86A2918330A03000381D1 /* ofxTrueTypeFontUC */ = {
+			isa = PBXGroup;
+			children = (
+				24D86A2F18330A03000381D1 /* install.xml */,
+				24D86A3018330A03000381D1 /* License.txt */,
+				24D86A3118330A03000381D1 /* ofxaddons_thumbnail.png */,
+				24D86A3218330A03000381D1 /* README.md */,
+				24D86A3318330A03000381D1 /* src */,
+			);
+			name = ofxTrueTypeFontUC;
+			path = ../../../addons/ofxTrueTypeFontUC;
+			sourceTree = "<group>";
+		};
+		24D86A3318330A03000381D1 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				24D86A3418330A03000381D1 /* ofxTrueTypeFontUC.cpp */,
+				24D86A3518330A03000381D1 /* ofxTrueTypeFontUC.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		7652B9B7014C8450639DA55C /* ofxVideoRecorder */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +169,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				24D86A2918330A03000381D1 /* ofxTrueTypeFontUC */,
 				7652B9B7014C8450639DA55C /* ofxVideoRecorder */,
 			);
 			name = addons;
@@ -313,6 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24D86A3818330A03000381D1 /* ofxTrueTypeFontUC.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* testApp.cpp in Sources */,
 				D50B3D9655F08D2B232C1C4D /* ofxVideoRecorder.cpp in Sources */,

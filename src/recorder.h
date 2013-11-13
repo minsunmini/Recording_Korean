@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxVideoRecorder.h"
+#include "ofxTrueTypeFontUC.h"
 
 class recorder : public ofBaseApp{
     
@@ -45,6 +46,8 @@ public:
     ofPixels recordPixels;
     
     ofImage instruction;
+    
+    ofxTrueTypeFontUC koreanSymbol;
     
     
     

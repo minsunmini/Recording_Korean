@@ -2,6 +2,8 @@
 
 //--------------------------------------------------------------
 void recorder::setup(){
+    koreanSymbol.loadFont("Batang.ttf", 64, true, true);
+    
     sampleRate = 44100;
     channels = 2;
 
@@ -79,13 +81,15 @@ void recorder::draw(){
 
    
     if(bRecording){
-        stringstream ss;
-        ss << recordChar << endl;
+        koreanSymbol.drawStringAsShapes(recordChar, 320, 240);
         
-        ofSetColor(0,0,0,100);
-        ofRect(120, 40, 400, 400);
-        ofSetColor(255, 255, 255);
-        ofDrawBitmapString(ss.str(),15,15);
+        //stringstream ss;
+        //ss << recordChar << endl;
+        
+        //ofSetColor(0,0,0,100);
+        //ofRect(120, 40, 400, 400);
+        //ofSetColor(255, 255, 255);
+        //ofDrawBitmapString(ss.str(),320,240);
     
         //Make red circle when recording
         //ofSetColor(255, 0, 0);
