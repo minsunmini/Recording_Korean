@@ -2,10 +2,26 @@
 
 //--------------------------------------------------------------
 void recorder::setup(){
-    koreanSymbol.loadFont("Batang.ttf", 64, true, true);
+    
+    
+    koreanFont.loadFont("Batang.ttf", 64, true, true);
+    
+    string koreanLetters = "ㅁ,ㅠ,ㅊ";
+
+    koreanCharacters = ofSplitString(koreanLetters, ",");
+    
+//    
+//    koreanCharacters.push_back("ㅁ");
+//    koreanCharacters.push_back("ㅠ");
+//    koreanCharacters.push_back("ㅊ");
+//    
+//    
+    
+    
     
     sampleRate = 44100;
     channels = 2;
+    
 
     ofSetFrameRate(60);
     ofSetLogLevel(OF_LOG_VERBOSE);
@@ -81,7 +97,19 @@ void recorder::draw(){
 
    
     if(bRecording){
-        koreanSymbol.drawStringAsShapes(recordChar, 320, 240);
+        
+        int charValue = (int)recordChar[0];
+        charValue -= 97;
+        
+        
+        if (charValue < 0){
+            charValue = 0;
+        }
+        charValue = charValue % koreanCharacters.size();
+        
+        string koreanString = koreanCharacters[  charValue  ];
+        
+        koreanFont.drawStringAsShapes(koreanString, 320, 240);
         
         //stringstream ss;
         //ss << recordChar << endl;

@@ -41,13 +41,16 @@ public:
     string fileName;
     string fileExt;
     string recordChar;
+    string koreanSymbols [26];
     
     ofFbo recordFbo;
     ofPixels recordPixels;
     
     ofImage instruction;
     
-    ofxTrueTypeFontUC koreanSymbol;
+    vector < string > koreanCharacters;
+    
+    ofxTrueTypeFontUC koreanFont;
     
     
     
