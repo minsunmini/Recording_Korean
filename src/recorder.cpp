@@ -33,7 +33,7 @@ void recorder::setup(){
     recorderStopTime = 0;
     recordChar = "";
     
-    bTimer = false;
+    //bTimer = false;
     
 }
 
