@@ -28,10 +28,13 @@ void recorder::setup(){
     soundStream.setup(this, 0, channels, sampleRate, 256, 4);
 
     ofSetWindowShape(vidGrabber.getWidth(), vidGrabber.getHeight()	);
-    bRecording = false;
+     bRecording = false;
     ofEnableAlphaBlending();
     recorderStopTime = 0;
     recordChar = "";
+    
+    bTimer = false;
+    
 }
 
 void recorder::recordForLetter(string letter, float duration){
@@ -42,11 +45,12 @@ void recorder::recordForLetter(string letter, float duration){
     
     bRecording = true;
     
-    if(bRecording && !vidRecorder.isInitialized()) {
-        vidRecorder.setup("output/" + letter + "/" + ofGetTimestampString()+fileExt, vidGrabber.getWidth(), vidGrabber.getHeight(), 30, sampleRate, channels);
-    }
+    bTimer = true;
+    keyPressedTime = ofGetElapsedTimef();
     
-    recorderStopTime = ofGetElapsedTimef() + duration; // record for 3 seconds!
+    
+    recordDur = duration;
+
     
     recordChar = letter;
     
@@ -59,17 +63,37 @@ void recorder::exit() {
 
 //--------------------------------------------------------------
 void recorder::update(){
+
+    if (bTimer == true){
+        if (ofGetElapsedTimef() - keyPressedTime > 1.0){
+            if(bRecording && !vidRecorder.isInitialized()) {
+                vidRecorder.setup("output/" + recordChar + "/" + ofGetTimestampString()+fileExt, vidGrabber.getWidth(), vidGrabber.getHeight(), 30, sampleRate, channels);
+            }
+            
+            
+            recorderStopTime = ofGetElapsedTimef() + recordDur; // record for 3 seconds!
+            
+            bTimer = false;
+        }
+        
+        
+    }
+    
+    cout << "recorderStopTime " << recorderStopTime << endl;
+    cout << "ofGetElapsedTimef " << ofGetElapsedTimef() << endl;
+
     
     if (bRecording == true && ofGetElapsedTimef() > recorderStopTime){
         bRecording = false;
         vidRecorder.close();
     }
     
-    
     vidGrabber.update();
     if(vidGrabber.isFrameNew() && bRecording){
         vidRecorder.addFrame(vidGrabber.getPixelsRef());
     }
+
+    
 }
 
 //--------------------------------------------------------------
@@ -77,7 +101,6 @@ void recorder::draw(){
 
     ofSetColor(255, 255, 255);
     vidGrabber.draw(0,0);
-    
     
 }
 
@@ -88,7 +111,7 @@ void recorder::audioIn(float *input, int bufferSize, int nChannels){
 
 //--------------------------------------------------------------
 void recorder::keyPressed(int key){
-
+  
 }
 
 //--------------------------------------------------------------

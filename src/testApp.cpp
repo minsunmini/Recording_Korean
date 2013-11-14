@@ -17,6 +17,8 @@ void testApp::setup(){
     
     movieRecorder.setup();
     userInterface.setup();
+    
+
 }
 
 void testApp::exit() {
@@ -25,12 +27,16 @@ void testApp::exit() {
 
 //--------------------------------------------------------------
 void testApp::update(){
-    movieRecorder.update();
+    
+        movieRecorder.update();
+    
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
+    
     movieRecorder.draw();
+    
     userInterface.draw(movieRecorder.bRecording, movieRecorder.recordChar);
 
 }
@@ -48,9 +54,9 @@ void testApp::keyReleased(int key){
     string letter = "";
     letter += (char)key;
     
+    
     // record this letter for 3 seconds!
         movieRecorder.recordForLetter(letter, 3.0);
-    
     
 }
 
