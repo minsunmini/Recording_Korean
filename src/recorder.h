@@ -16,9 +16,7 @@ public:
     
     void recordForLetter(string letter, float duration);
     
-    
     float recorderStopTime;
-    
     
     void keyPressed  (int key);
     void keyReleased(int key);
@@ -40,18 +38,11 @@ public:
     int channels;
     string fileName;
     string fileExt;
-    string recordChar;
-    string koreanSymbols [26];
     
     ofFbo recordFbo;
     ofPixels recordPixels;
     
-    ofImage instruction;
-    
-    vector < string > koreanCharacters;
-    
-    ofxTrueTypeFontUC koreanFont;
-    
+    string recordChar;
     
     
 };

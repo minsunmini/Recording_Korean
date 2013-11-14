@@ -3,22 +3,6 @@
 //--------------------------------------------------------------
 void recorder::setup(){
     
-    
-    koreanFont.loadFont("Batang.ttf", 64, true, true);
-    
-    string koreanLetters = "ㅁ,ㅠ,ㅊ";
-
-    koreanCharacters = ofSplitString(koreanLetters, ",");
-    
-//    
-//    koreanCharacters.push_back("ㅁ");
-//    koreanCharacters.push_back("ㅠ");
-//    koreanCharacters.push_back("ㅊ");
-//    
-//    
-    
-    
-    
     sampleRate = 44100;
     channels = 2;
     
@@ -47,9 +31,7 @@ void recorder::setup(){
     bRecording = false;
     ofEnableAlphaBlending();
     recorderStopTime = 0;
-    
-    instruction.loadImage("instruction_screen.png");
-
+    recordChar = "";
 }
 
 void recorder::recordForLetter(string letter, float duration){
@@ -67,6 +49,7 @@ void recorder::recordForLetter(string letter, float duration){
     recorderStopTime = ofGetElapsedTimef() + duration; // record for 3 seconds!
     
     recordChar = letter;
+    
 }
 
 
@@ -94,39 +77,6 @@ void recorder::draw(){
 
     ofSetColor(255, 255, 255);
     vidGrabber.draw(0,0);
-
-   
-    if(bRecording){
-        
-        int charValue = (int)recordChar[0];
-        charValue -= 97;
-        
-        
-        if (charValue < 0){
-            charValue = 0;
-        }
-        charValue = charValue % koreanCharacters.size();
-        
-        string koreanString = koreanCharacters[  charValue  ];
-        
-        koreanFont.drawStringAsShapes(koreanString, 320, 240);
-        
-        //stringstream ss;
-        //ss << recordChar << endl;
-        
-        //ofSetColor(0,0,0,100);
-        //ofRect(120, 40, 400, 400);
-        //ofSetColor(255, 255, 255);
-        //ofDrawBitmapString(ss.str(),320,240);
-    
-        //Make red circle when recording
-        //ofSetColor(255, 0, 0);
-        //ofCircle(ofGetWidth() - 20, 20, 5);
-    } else {
-        
-        instruction.draw(120,40);
-        
-            }
     
     
 }

@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "recorder.h"
+#include "interface.h"
 
 class testApp : public ofBaseApp{
     
@@ -22,5 +23,6 @@ public:
     void gotMessage(ofMessage msg);
     
     recorder movieRecorder;
+    interface userInterface;
     
 };

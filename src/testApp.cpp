@@ -16,6 +16,7 @@ void testApp::setup(){
     */
     
     movieRecorder.setup();
+    userInterface.setup();
 }
 
 void testApp::exit() {
@@ -30,7 +31,7 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
     movieRecorder.draw();
-    
+    userInterface.draw(movieRecorder.bRecording, movieRecorder.recordChar);
 
 }
 
