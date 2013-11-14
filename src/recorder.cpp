@@ -33,8 +33,6 @@ void recorder::setup(){
     recorderStopTime = 0;
     recordChar = "";
     
-    bTimer = false;
-    
 }
 
 void recorder::recordForLetter(string letter, float duration){
@@ -45,11 +43,12 @@ void recorder::recordForLetter(string letter, float duration){
     
     bRecording = true;
     
-    bTimer = true;
-    keyPressedTime = ofGetElapsedTimef();
+    if(bRecording && !vidRecorder.isInitialized()) {
+        vidRecorder.setup("output/" + letter + "/" + ofGetTimestampString()+fileExt, vidGrabber.getWidth(), vidGrabber.getHeight(), 30, sampleRate, channels);
+    }
     
     
-    recordDur = duration;
+    recorderStopTime = ofGetElapsedTimef() + duration; // record for 3 seconds!
 
     
     recordChar = letter;
@@ -64,25 +63,6 @@ void recorder::exit() {
 //--------------------------------------------------------------
 void recorder::update(){
 
-    if (bTimer == true){
-        if (ofGetElapsedTimef() - keyPressedTime > 1.0){
-            if(bRecording && !vidRecorder.isInitialized()) {
-                vidRecorder.setup("output/" + recordChar + "/" + ofGetTimestampString()+fileExt, vidGrabber.getWidth(), vidGrabber.getHeight(), 30, sampleRate, channels);
-            }
-            
-            
-            recorderStopTime = ofGetElapsedTimef() + recordDur; // record for 3 seconds!
-            
-            bTimer = false;
-        }
-        
-        
-    }
-    
-    cout << "recorderStopTime " << recorderStopTime << endl;
-    cout << "ofGetElapsedTimef " << ofGetElapsedTimef() << endl;
-
-    
     if (bRecording == true && ofGetElapsedTimef() > recorderStopTime){
         bRecording = false;
         vidRecorder.close();
@@ -92,7 +72,6 @@ void recorder::update(){
     if(vidGrabber.isFrameNew() && bRecording){
         vidRecorder.addFrame(vidGrabber.getPixelsRef());
     }
-
     
 }
 

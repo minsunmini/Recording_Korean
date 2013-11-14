@@ -11,7 +11,7 @@
 void interface::setup(){
     koreanFont.loadFont("hline.ttf", 64, true, true);
     
-    string koreanLetters = "ㅁ,ㅠ,ㅊ,ㅇ,ㄷ,ㄹ,ㅎ,ㅗ,ㅑ,ㅓ,ㅏ,ㅣ,ㅡ,ㅜ,ㅐ,ㅔㅂ,ㄱ,ㄴ,ㅅ,ㅕ,ㅍ,ㅈ,ㅌ,ㅛ,ㅋ";
+    string koreanLetters = "ㅁ,ㅠ,ㅊ,ㅇ,ㄷ,ㄹ,ㅎ,ㅗ,ㅑ,ㅓ,ㅏ,ㅣ,ㅡ,ㅜ,ㅐ,ㅔ,ㅂ,ㄱ,ㄴ,ㅅ,ㅕ,ㅍ,ㅈ,ㅌ,ㅛ,ㅋ";
     
     koreanCharacters = ofSplitString(koreanLetters, ",");
     
@@ -49,7 +49,7 @@ void interface::draw(bool bRecording, string recordChar){
         
         string koreanString = koreanCharacters[  charValue  ];
         
-        koreanFont.drawStringAsShapes(koreanString, 300, 260);
+        koreanFont.drawStringAsShapes(koreanString, 290, 260);
         
         //stringstream ss;
         //ss << recordChar << endl;

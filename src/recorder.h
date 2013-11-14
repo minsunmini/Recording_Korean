@@ -43,11 +43,6 @@ public:
     ofPixels recordPixels;
     
     string recordChar;
-    float recordDur;
-    
-    //delay
-    bool bTimer;
-    float keyPressedTime;
 
     
 };
