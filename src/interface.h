@@ -18,6 +18,7 @@ class interface : public ofBaseApp{
         void draw(bool bRecording, string recordChar);
     
         ofImage instruction;
+        ofImage blackBox;
     
         vector < string > koreanCharacters;
     

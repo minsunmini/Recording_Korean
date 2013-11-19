@@ -10,7 +10,7 @@ void recorder::setup(){
     ofSetFrameRate(60);
     ofSetLogLevel(OF_LOG_VERBOSE);
     vidGrabber.setDesiredFrameRate(30);
-    vidGrabber.initGrabber(640, 480);
+    vidGrabber.initGrabber(1280, 720);
     vidRecorder.setFfmpegLocation(ofFilePath::getAbsolutePath("ffmpeg")); // use this is you have ffmpeg installed in your data folder
 
     fileName = "testMovie";

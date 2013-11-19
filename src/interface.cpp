@@ -22,7 +22,7 @@ void interface::setup(){
     //    
     //
     
-    instruction.loadImage("instruction_screen.png");
+    blackBox.loadImage("box.png");
 
 }
 
@@ -30,6 +30,8 @@ void interface::update(){
 }
 
 void interface::draw(bool bRecording, string recordChar){
+    
+    blackBox.draw(0,0);
     
     //?
     if(bRecording){
@@ -64,7 +66,7 @@ void interface::draw(bool bRecording, string recordChar){
         //ofCircle(ofGetWidth() - 20, 20, 5);
     } else {
         
-        instruction.draw(120,40);
+        //instruction.draw(120,40);
         
     }
     
