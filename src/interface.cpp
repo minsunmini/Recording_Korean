@@ -14,6 +14,7 @@ void interface::setup(){
     string koreanLetters = "ㅁ,ㅠ,ㅊ,ㅇ,ㄷ,ㄹ,ㅎ,ㅗ,ㅑ,ㅓ,ㅏ,ㅣ,ㅡ,ㅜ,ㅐ,ㅔ,ㅂ,ㄱ,ㄴ,ㅅ,ㅕ,ㅍ,ㅈ,ㅌ,ㅛ,ㅋ";
     
     koreanCharacters = ofSplitString(koreanLetters, ",");
+
     
     //
     //    koreanCharacters.push_back("ㅁ");
@@ -22,7 +23,16 @@ void interface::setup(){
     //    
     //
     
-    instruction.loadImage("instruction_screen.png");
+    //load image
+    instruction.loadImage("instruction_screen-proto.png");
+    recordBn.loadImage("");
+    startRecordBn.loadImage("");
+    listenBn.loadImage("");
+    stopListenBn.loadImage("");
+    
+    //blackBox.loadImage("box.png");
+    
+   
 
 }
 
@@ -31,12 +41,16 @@ void interface::update(){
 
 void interface::draw(bool bRecording, string recordChar){
     
+        //blackBox.draw(0,0);
+    
     //?
     if(bRecording){
         
-        ofSetColor(0,0,0,100);
-        ofRect(120, 40, 400, 400);
-        ofSetColor(255, 255, 255);
+        //transparent black box
+        //ofSetColor(0,0,0,100);
+        //ofRect(120, 40, 400, 400);
+        //ofSetColor(255, 255, 255);
+        
         
         int charValue = (int)recordChar[0];
         charValue -= 97;
@@ -65,6 +79,8 @@ void interface::draw(bool bRecording, string recordChar){
     } else {
         
         instruction.draw(120,40);
+        
+
         
     }
     
