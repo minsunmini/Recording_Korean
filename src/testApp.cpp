@@ -15,27 +15,33 @@ void testApp::setup(){
     }
     */
     
-    movieRecorder.setup();
+    
+    
+    movieRecorder.setup();    // <------------ you want this
+    
     userInterface.setup();
     
 
 }
 
 void testApp::exit() {
-    movieRecorder.exit();
+    movieRecorder.exit();     // <------------ you want this
+
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
     
-        movieRecorder.update();
+    movieRecorder.update();     // <------------ you want this
+
     
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
     
-    movieRecorder.draw();
+    movieRecorder.draw();    // <------------ you want this  (replaces grabber);
+
     
     userInterface.draw(movieRecorder.bRecording, movieRecorder.recordChar);
 
@@ -50,13 +56,21 @@ void testApp::keyPressed(int key){
 //--------------------------------------------------------------
 void testApp::keyReleased(int key){
     
+    // (you need to handle space presses differently
+//    if (key == ' '){
+//        
+//        
+//    } else {
+//        
+//        
+//    }
+    
     // convert the key into a "string"
-    string letter = "";
-    letter += (char)key;
-    
-    
-    // record this letter for 3 seconds!
-        movieRecorder.recordForLetter(letter, 3.0);
+    string letter = "";   // <------------ you want this
+    letter += (char)key; // <------------ you want this
+    // record this letter for 3 seconds;
+    movieRecorder.recordForLetter(letter, 3.0);    // <------------ you want this
+
     
 }
 
