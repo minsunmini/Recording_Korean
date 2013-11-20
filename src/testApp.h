@@ -2,7 +2,14 @@
 
 #include "ofMain.h"
 #include "recorder.h"
-#include "interface.h"
+
+class keyframe {
+    
+public:
+    int frameNum;
+    int key;
+    
+};
 
 class testApp : public ofBaseApp{
     
@@ -22,7 +29,14 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
+    ofVideoPlayer player;
     recorder movieRecorder;
-    interface userInterface;
+    
+    ofImage blackBorder;
+    
+    float prevMoviePosition;
+    float keyFrame;
+    
+    keyframe frames[3];
     
 };

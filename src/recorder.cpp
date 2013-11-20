@@ -79,7 +79,7 @@ void recorder::update(){
 void recorder::draw(){
 
     ofSetColor(255, 255, 255);
-    vidGrabber.draw(0,0);
+    vidGrabber.draw(ofGetWidth(), 0, -ofGetWidth(), ofGetHeight());
     
 }
 
