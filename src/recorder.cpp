@@ -52,7 +52,7 @@ void recorder::recordForLetter(string letter, float duration){
 
     
     recordChar = letter;
-    
+    cout << "recorded " << letter << " at " << recorderStopTime << " filename is " << "output/" + letter + "/" + ofGetTimestampString()+fileExt << endl;
 }
 
 

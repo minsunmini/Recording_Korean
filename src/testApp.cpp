@@ -15,7 +15,7 @@ void testApp::setup(){
      }
      */
     
-    player.loadMovie("miniRecorder.mov");
+    player.loadMovie("miniRecorder.mp4");
     
     player.setLoopState(OF_LOOP_NONE);
     
@@ -25,14 +25,29 @@ void testApp::setup(){
     
     prevMoviePosition = 0;
     
-    frames[0].frameNum = 100;
-    frames[0].key = 'r';
+    string keyName = "r,s,e,f,a,q,t,d,w,c,z,x,v,g,k,i,j,u,h,y,n,b,m,l,o,p";
     
-    frames[1].frameNum = 200;
-    frames[1].key = 's';
+    keyOrder = ofSplitString(keyName, ",");
     
-    frames[2].frameNum = 300;
-    frames[2].key = 'e';
+    int keyFrameNum = 1029;
+    
+    for (int i = 0; i < 26; i++) {
+
+        frames[i].frameNum = keyFrameNum;
+//        frames[i].key = *(keyOrder[i].c_str());
+        frames[i].key = ofToChar(keyOrder[i]);
+
+        keyFrameNum += 95;
+    }
+    
+//    frames[0].frameNum = 1027;
+//    frames[0].key = 'r';
+//    
+//    frames[1].frameNum = 1122;
+//    frames[1].key = 's';
+//    
+//    frames[2].frameNum = 1217;
+//    frames[2].key = 'e';
     
 }
 
@@ -52,7 +67,7 @@ void testApp::update(){
     
     float currentPosition = player.getPosition();
     
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 26; i++) {
         
         int frameNow = currentPosition * player.getTotalNumFrames();
         int framePrev = prevMoviePosition * player.getTotalNumFrames();
@@ -95,14 +110,21 @@ void testApp::keyPressed(int key){
         player.setPosition(0);
         player.play();
         
+    } else if (key == '\r') {
+        player.setPosition(0.24);
+        
+        // why doesn't this work? Isn't it same as above?
+        //player.setPosition(844 / player.getTotalNumFrames());
+        
     } else {
         
         // convert the key into a "string"
         string letter = "";   // <------------ you want this
         letter += (char)key; // <------------ you want this
+        
         // record this letter for 3 seconds;
-        movieRecorder.recordForLetter(letter, 3.0);    // <------------ you want this
-
+        movieRecorder.recordForLetter(letter, 1.5);    // <------------ you want this
+        
     }
 }
 

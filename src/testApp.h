@@ -37,6 +37,8 @@ public:
     float prevMoviePosition;
     float keyFrame;
     
-    keyframe frames[3];
+    keyframe frames[26];
+    
+    vector < string > keyOrder;
     
 };
